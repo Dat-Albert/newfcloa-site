@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Florida Career Launch Online Academy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root {
+--primary: #163b73;
+--accent: #00a889;
+--bg-light: #f6f8fc;
+--text: #222b38;
+--muted: #687186;
+--border: #dde3f0;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+color: var(--text);
+background: #ffffff;
+line-height: 1.6;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+
+header {
+border-bottom: 1px solid #e3e7f2;
+position: sticky;
+top: 0;
+z-index: 20;
+background: #fff;
+}
+.wrapper {
+max-width: 1120px;
+margin: 0 auto;
+padding: 0 1.25rem;
+}
+.nav {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0.75rem 0;
+gap: 1.5rem;
+}
+.brand {
+font-weight: 700;
+color: var(--primary);
+font-size: 1rem;
+text-transform: uppercase;
+letter-spacing: 0.08em;
+}
+nav ul {
+list-style: none;
+display: flex;
+gap: 1rem;
+font-size: 0.9rem;
+color: var(--muted);
+}
+.btn {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+padding: 0.6rem 1.2rem;
+border-radius: 999px;
+border: 1px solid transparent;
+font-size: 0.9rem;
+font-weight: 600;
+cursor: pointer;
+white-space: nowrap;
+transition: all 0.15s ease-out;
+}
+.btn-primary {
+background: var(--accent);
+color: #fff;
+border-color: var(--accent);
+}
+.btn-primary:hover { filter: brightness(0.95); }
+.btn-outline {
+background: #fff;
+color: var(--primary);
+border-color: rgba(22,59,115,0.2);
+}
+.btn-outline:hover { border-color: var(--primary); }
+
+
+/* HERO – similar structure to FTA */
+.hero {
+padding: 2.5rem 0 2.75rem;
+display: grid;
+grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+gap: 2.25rem;
+align-items: center;
+}
+.hero h1 {
+font-size: clamp(1.9rem, 2.6vw, 2.4rem);
+color: var(--primary);
+margin-bottom: 0.75rem;
+font-weight: 800;
+}
+.hero p {
+font-size: 1rem;
+color: var(--muted);
+max-width: 32rem;
+margin-bottom: 1.25rem;
+}
+.hero-ctas {
+display: flex;
+gap: 0.75rem;
+flex-wrap: wrap;
+margin-bottom: 1.1rem;
+}
+.hero-strip {
+display: flex;
+flex-wrap: wrap;
+gap: 0.6rem;
+align-items: center;
+font-size: 0.8rem;
+color: var(--muted);
+}
+.logo-pill {
+padding: 0.25rem 0.7rem;
+border-radius: 999px;
+background: #f1f4fb;
+font-size: 0.78rem;
+}
+.hero-visual {
+border-radius: 1.2rem;
+overflow: hidden;
+position: relative;
+min-height: 260px;
+background: linear-gradient(135deg,#163b73,#00a889);
+color: #fff;
+display: flex;
+align-items: flex-end;
+padding: 1.5rem;
+}
+.hero-visual::before {
+content: "";
+position: absolute;
+inset: 0;
+background: url("https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1200") center/cover;
+opacity: 0.3;
+mix-blend-mode: screen;
+}
+.hero-box {
+position: relative;
+max-width: 17rem;
+}
+.hero-tag {
+display: inline-flex;
+align-items: center;
+padding: 0.25rem 0.7rem;
+border-radius: 999px;
+background: rgba(10,23,55,0.32);
+font-size: 0.72rem;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+margin-bottom: 0.4rem;
+}
+.hero-box h2 {
+font-size: 1.1rem;
+margin-bottom: 0.25rem;
+}
+.hero-box p {
+font-size: 0.85rem;
+color: #e9efff;
+margin: 0;
+}
+
+
+section {
+padding: 2.5rem 0 0;
+}
+.section-head {
+text-align: center;
+margin-bottom: 1.7rem;
+}
+.section-title {
+font-size: 1.3rem;
+font-weight: 700;
+color: var(--primary);
+margin-bottom: 0.4rem;
+}
+.section-sub {
+font-size: 0.95rem;
+color: var(--muted);
+max-width: 32rem;
+margin: 0 auto;
+}
+
+
+/* PARTNERS STRIP – like FTA “Our partners” */
+.partners {
+background: var(--bg-light);
+border-radius: 1.1rem;
+padding: 1.25rem 1.5rem;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 1.5rem;
+flex-wrap: wrap;
+}
+.partners-title {
+font-weight: 600;
+color: var(--text);
+font-size: 0.98rem;
+}
+.partners-logos {
+display: flex;
+gap: 0.5rem;
+flex-wrap: wrap;
+font-size: 0.8rem;
+color: var(--muted);
+}
+.partners-pill {
+padding: 0.25rem 0.7rem;
+border-radius: 999px;
+border: 1px dashed #c6cee4;
+}
+
+
+/* WHO WE SERVE – 3 card layout like FTA */
+.three-grid {
+display: grid;
+grid-template-columns: repeat(3, minmax(0,1fr));
+gap: 1rem;
+}
+.who-card {
+border-radius: 1rem;
+border: 1px solid var(--border);
+padding: 1.25rem;
+background: #fff;
+box-shadow: 0 8px 22px rgba(15,23,42,0.03);
+}
+.who-label {
+font-size: 0.78rem;
+text-transform: uppercase;
+letter-spacing: 0.12em;
+color: var(--accent);
+margin-bottom: 0.35rem;
+}
+.who-title {
+font-weight: 700;
+margin-bottom: 0.4rem;
+font-size: 1rem;
+color: var(--text);
+}
+.who-text {
+font-size: 0.9rem;
+color: var(--muted);
+margin-bottom: 0.75rem;
+}
+.who-link {
+font-size: 0.85rem;
+font-weight: 600;
+color: var(--primary);
+}
+
+
+/* PROGRAMS PREVIEW – simple cards */
+.programs-grid {
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 1rem;
+margin-top: 1.25rem;
+}
+.program-card {
+border-radius: 1rem;
+border: 1px solid var(--border);
+padding: 1rem;
+font-size: 0.88rem;
+}
+.program-name {
+font-weight: 600;
+margin-bottom: 0.25rem;
+}
+.program-meta {
+color: var(--muted);
+margin-bottom: 0.4rem;
+font-size: 0.82rem;
+}
+.tag {
+display: inline-block;
+padding: 0.15rem 0.55rem;
+border-radius: 999px;
+background: #eef7f5;
+color: #0a6b55;
+font-size: 0.72rem;
+font-weight: 600;
+margin-bottom: 0.35rem;
+}
+.program-link { font-size: 0.82rem; font-weight: 600; color: var(--primary); }
+
+
+/* WIOA STEPS – like a benefits row */
+.steps {
+display: grid;
+grid-template-columns: repeat(5,minmax(0,1fr));
+gap: 1rem;
+font-size: 0.86rem;
+margin-top: 1.5rem;
+}
+.step {
+border-radius: 0.9rem;
+border: 1px solid #e1e6f2;
+padding: 0.9rem;
+background: #fff;
+}
+.step-num {
+width: 1.4rem;
+height: 1.4rem;
+border-radius: 999px;
+background: var(--primary);
+color: #fff;
+font-size: 0.8rem;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 0.3rem;
+}
+.step-title {
+font-weight: 600;
+font-size: 0.86rem;
+margin-bottom: 0.2rem;
+}
+.step-text { color: var(--muted); }
+
+
+/* DIGITAL EQUITY / OUTCOMES STRIP */
+.two-col {
+display: grid;
+grid-template-columns: minmax(0,1.15fr) minmax(0,1fr);
+gap: 1.5rem;
+align-items: flex-start;
+}
+.panel {
+border-radius: 1rem;
+padding: 1.25rem 1.4rem;
+border: 1px solid var(--border);
+background: var(--bg-light);
+font-size: 0.9rem;
+}
+.panel h3 {
+font-size: 1rem;
+margin-bottom: 0.4rem;
+color: var(--primary);
+}
+.panel p { color: var(--muted); margin-bottom: 0.6rem; }
+.panel ul { list-style: disc; padding-left: 1.25rem; margin-bottom: 0.35rem; }
+.panel li { margin-bottom: 0.2rem; }
+.disclosure {
+font-size: 0.78rem;
+color: var(--muted);
+margin-top: 0.3rem;
+}
+
+
+/* BOTTOM CTA */
+.cta-band {
+margin: 2.5rem 0 0;
+border-radius: 1.2rem;
+background: linear-gradient(135deg,#163b73,#00a889);
+color: #fff;
+padding: 1.6rem 1.5rem;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 1.3rem;
+flex-wrap: wrap;
+}
+.cta-text { font-weight: 600; font-size: 1rem; }
+
+
+footer {
+margin-top: 2.25rem;
+padding: 1.25rem 0 2rem;
+border-top: 1px solid #e3e7f2;
+font-size: 0.8rem;
+color: var(--muted);
+}
+.foot-inner {
+display: flex;
+justify-content: space-between;
+gap: 1rem;
+flex-wrap: wrap;
+}
+
+
+@media (max-width: 900px) {
+.hero,
+.three-grid,
+.programs-grid,
+.steps,
+.two-col {
+grid-template-columns: 1fr;
+}
+nav ul { display: none; } /* simple for now on mobile */
+.partners {
+align-items: flex-start;
+}
+}
+</style>
+</head>
+<body>
+
+
+<header>
+<div class="wrapper nav">
+<div class="brand">Florida Career Launch Online Academy</div>
+<nav>
+<ul>
+<li><a href="#programs">Programs</a></li>
+<li><a href="#wioa">WIOA Funding</a></li>
+<li><a href="#tech">Technology Access</a></li>
+<li><a href="#services">Career Services</a></li>
+<li><a href="#about">About</a></li>
+</ul>
+</nav>
+<a href="#eligibility" class="btn btn-primary">Check Eligibility</a>
+</div>
+</header>
+
+
+<main class="wrapper">
+
+
+<!-- HERO (mirrors FTA hero structure) -->
+<section class="hero" id="top">
+<div>
+<h1>WIOA-Eligible Online Career Training for Florida’s In-Demand Jobs</h1>
+<p>Florida Career Launch Online Academy (FCLOA) is a non-profit workforce development organization providing accredited certification training aligned with Florida’s Targeted Occupations List.</p>
+<div class="hero-ctas">
+<a href="#eligibility" class="btn btn-primary">Check Eligibility</a>
+<a href="#programs" class="btn btn-outline">View Programs</a>
+</div>
+<div class="hero-strip">
+<span>Preparing students for certifications from:</span>
+<span class="logo-pill">CompTIA</span>
+<span class="logo-pill">AWS</span>
+<span class="logo-pill">PMI</span>
+<span class="logo-pill">AAPC</span>
+<span class="logo-pill">SHRM</span>
+<span class="logo-pill">Google</span>
+</div>
+</div>
+<div class="hero-visual">
+<div class="hero-box">
+<div class="hero-tag">Florida • Online • Non‑Profit</div>
+<h2>Certification Preparation Aligned with Florida’s Workforce Needs</h2>
+<p>Short, focused programs that prepare adults for industry‑recognized credentials and high‑demand careers in IT, Healthcare, and Business.</p>
+</div>
+</div>
+</section>
+
+
+<!-- PARTNERS STRIP (like FTA “Our partners”) -->
+<section aria-label="Partners">
+<div class="partners">
+<div class="partners-title">FCLOA collaborates with workforce boards, employers, and community organizations across Florida.</div>
+<div class="partners-logos">
+<span class="partners-pill">CareerSource Florida</span>
+<span class="partners-pill">Regional Workforce Boards</span>
+<span class="partners-pill">Florida Employers</span>
+<span class="partners-pill">Community & Philanthropic Partners</span>
+</div>
+</div>
+</section>
+
+
+<!-- WHO WE SERVE (3 cards like FTA career seekers / employers / communities) -->
+<section id="serve">
+<div class="section-head">
+<h2 class="section-title">Who We Serve</h2>
+<p class="section-sub">Training Florida’s workforce for sustainable careers through online, certification‑focused programs.</p>
+</div>
+<div class="three-grid">
+<article class="who-card">
+<div class="who-label">Career Seekers</div>
+<h3 class="who-title">Dislocated & Low‑Income Workers</h3>
+<p class="who-text">
+FCLOA serves dislocated workers, low‑income individuals, career changers, and adults seeking industry credentials. Our programs are designed to move students from training to employment in high‑demand fields across Florida.
+</p>
+<a href="#programs" class="who-link">Explore Certification Programs →</a>
+</article>
+<article class="who-card">
+<div class="who-label">Employers</div>
+<h3 class="who-title">Talent Pipelines for In‑Demand Roles</h3>
+<p class="who-text">
+Employers partner with FCLOA to align training with real workforce needs in IT, Healthcare, and Business. Our graduates are prepared for entry‑to‑mid level roles requiring recognized certifications.
+</p>
+<a href="#partners" class="who-link">Partner With FCLOA →</a>
+</article>
+<article class="who-card">
+<div class="who-label">Communities</div>
+<h3 class="who-title">Workforce Boards & Foundations</h3>
+<p class="who-text">
+FCLOA collaborates with workforce boards, foundations, and community organizations to expand access to WIOA‑eligible training, improve employment outcomes, and support regional economic mobility.
+</p>
+<a href="#about" class="who-link">Learn About Our Mission →</a>
+</article>
+</div>
+</section>
+
+
+<!-- PROGRAMS PREVIEW (mirrors FTA “benefits / opportunities” cards) -->
+<section id="programs">
+<div class="section-head">
+<h2 class="section-title">WIOA-Eligible Certification Programs</h2>
+<p class="section-sub">
+FCLOA offers online certification preparation programs aligned with Florida’s Targeted Occupations List. Each program prepares students to sit for an independent, nationally recognized certification exam.
+</p>
+</div>
+<div class="programs-grid">
+<article class="program-card">
+<div class="tag">Information Technology</div>
+<h3 class="program-name">Cybersecurity Analyst</h3>
+<div class="program-meta">Certification: CompTIA Security+ • Career Path: Cybersecurity Analyst</div>
+<a href="#" class="program-link">View Program Details →</a>
+</article>
+<article class="program-card">
+<div class="tag">Healthcare</div>
+<h3 class="program-name">Certified Professional Coder (CPC)</h3>
+<div class="program-meta">Certification: AAPC CPC • Career Path: Medical Biller/Coder</div>
+<a href="#" class="program-link">View Program Details →</a>
+</article>
+<article class="program-card">
+<div class="tag">Business / Management</div>
+<h3 class="program-name">Project Management Professional (PMP) Prep</h3>
+<div class="program-meta">Certification: PMI PMP • Career Path: Project Manager</div>
+<a href="#" class="program-link">View Program Details →</a>
+</article>
+<!-- Add cards for the remaining programs in the same format -->
+</div>
+</section>
+
+
+<!-- HOW WIOA FUNDING WORKS (benefit row style like FTA “benefits of apprenticeship”) -->
+<section id="wioa">
+<div class="section-head">
+<h2 class="section-title">How WIOA Funding Works</h2>
+<p class="section-sub">
+The Workforce Innovation and Opportunity Act (WIOA) helps eligible individuals access career training aligned with workforce needs through local CareerSource Florida centers.
+</p>
+</div>
+<div class="steps">
+<div class="step">
+<div class="step-num">1</div>
+<div class="step-title">Eligibility Review</div>
+<p class="step-text">Meet with your local CareerSource Florida office to determine WIOA eligibility.</p>
+</div>
+<div class="step">
+<div class="step-num">2</div>
+<div class="step-title">Program Selection</div>
+<p class="step-text">Work with a case manager to select an approved FCLOA program aligned with your career goals.</p>
+</div>
+<div class="step">
+<div class="step-num">3</div>
+<div class="step-title">Enrollment</div>
+<p class="step-text">Enroll in your FCLOA online program once funding and program approval are confirmed.</p>
+</div>
+<div class="step">
+<div class="step-num">4</div>
+<div class="step-title">Training & Exam Prep</div>
+<p class="step-text">Complete instructor‑supported online training focused on certification exam readiness.</p>
+</div>
+<div class="step">
+<div class="step-num">5</div>
+<div class="step-title">Career Services</div>
+<p class="step-text">Access resume support, interview preparation, and employer connections through FCLOA career services.</p>
+</div>
+</div>
+</section>
+
+
+<!-- DIGITAL EQUITY + CAREER OUTCOMES (two panels) -->
+<section id="tech">
+<div class="two-col">
+<div class="panel">
+<h3>Digital Equity & Technology Access</h3>
+<p>To support equitable access to online training, FCLOA operates a Student Technology Access Program, providing required learning technology to qualifying students based on program needs, funding availability, and eligibility criteria.</p>
+<ul>
+<li>Professional laptop access for applicable programs</li>
+<li>Immersive learning equipment for select instructional models</li>
+</ul>
+<p class="disclosure">
+Technology is funded through private donations, corporate partnerships, and non‑WIOA sources. WIOA funds are applied to tuition and approved training costs only.
+</p>
+</div>
+<div class="panel" id="services">
+<h3>Career Services & Outcomes</h3>
+<p>FCLOA provides career services designed to support student transition into the workforce, including:</p>
+<ul>
+<li>Resume and interview preparation</li>
+<li>Employer connections</li>
+<li>Workforce readiness coaching</li>
+</ul>
+<p>Our goal is to support graduates in securing sustainable employment aligned with their certification.</p>
+</div>
+</div>
+</section>
+
+
+<!-- SIMPLE ELIGIBILITY CTA -->
+<section id="eligibility">
+<div class="cta-band">
+<div class="cta-text">Ready to see if you qualify for WIOA‑funded online training with FCLOA?</div>
+<a href="#contact" class="btn btn-primary">Start Eligibility Check</a>
+</div>
+</section>
+
+
+<!-- ABOUT / PARTNER SUMMARY -->
+<section id="about">
+<div class="section-head">
+<h2 class="section-title">About Florida Career Launch Online Academy</h2>
+<p class="section-sub">
+Florida Career Launch Online Academy is a Florida‑based non‑profit organization dedicated to workforce development and economic mobility.
+</p>
+</div>
+<div style="margin-top:1.25rem;font-size:0.95rem;color:var(--muted);max-width:48rem;">
+<p style="margin-bottom:0.75rem;">
+Our mission is to empower Florida residents with accredited, in‑demand certifications and career readiness skills needed to secure sustainable employment. FCLOA operates under a Board of Directors and adheres to non‑profit best practices in transparency and accountability.
+</p>
+<p>
+We collaborate with workforce boards, employers, foundations, and community organizations to expand access to WIOA‑eligible training and strengthen Florida’s talent pipeline.
+</p>
+</div>
+</section>
+
+
+<!-- CONTACT / PARTNER CTA -->
+<section id="contact" style="padding-top:2.5rem;">
+<div class="section-head">
+<h2 class="section-title">Partner With FCLOA</h2>
+<p class="section-sub">
+Workforce boards, employers, foundations, and technology sponsors are invited to collaborate in expanding access to high‑demand career training across Florida.
+</p>
+</div>
+<div style="margin-top:1.25rem;font-size:0.9rem;color:var(--muted);max-width:36rem;">
+<p style="margin-bottom:0.5rem;">
+Use the form below (or your CMS form) to contact our team about:
+</p>
+<ul style="list-style:disc;padding-left:1.25rem;">
+<li>Employer hiring pipelines</li>
+<li>Technology sponsorships</li>
+<li>Workforce grant collaboration</li>
+<li>Regional WIOA and ETPL partnerships</li>
+</ul>
+</div>
+<!-- Placeholder form; swap with real form integration -->
+<form style="margin-top:1.25rem;max-width:32rem;display:grid;gap:0.6rem;font-size:0.9rem;">
+<input type="text" placeholder="Name" style="padding:0.6rem 0.7rem;border-radius:0.6rem;border:1px solid var(--border);">
+<input type="email" placeholder="Email" style="padding:0.6rem 0.7rem;border-radius:0.6rem;border:1px solid var(--border);">
+<input type="text" placeholder="Organization" style="padding:0.6rem 0.7rem;border-radius:0.6rem;border:1px solid var(--border);">
+<textarea rows="3" placeholder="How would you like to partner with FCLOA?" style="padding:0.6rem 0.7rem;border-radius:0.6rem;border:1px solid var(--border);resize:vertical;"></textarea>
+<button type="submit" class="btn btn-primary" style="justify-self:flex-start;">Contact Our Team</button>
+</form>
+</section>
+
+
+</main>
+
+
+<footer>
+<div class="wrapper foot-inner">
+<div>© <span id="year"></span> Florida Career Launch Online Academy • Florida‑based 501(c)(3) non‑profit.</div>
+<div>Compliance, Security & Accessibility • WIOA & ETPL‑aligned training provider.</div>
+</div>
+</footer>
+
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+
+</body>
+</html>
